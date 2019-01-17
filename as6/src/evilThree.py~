@@ -1,0 +1,13 @@
+from numbertwo import *;
+def decoThree():
+	# ---------------------------------
+	# Your job here (Challenge 4)
+	# ---------------------------------
+	for i in range(500):
+		width = 500 - i
+		height = 500 - i
+		if i%2 == 0: fillColor = "#000000";
+		else: fillColor = "#FFFFFF";
+		drawRectangle(0, 0, "#000000", fillColor, width, height)
+decoThree();
+input();

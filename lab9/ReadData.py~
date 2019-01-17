@@ -1,0 +1,31 @@
+def readData(filename):
+	fStock = open (filename,"r");
+	arrLines = fStock.readlines();
+	fStock.close();
+	x = len(arrLines)-1;
+	arrRet = []; 
+	while x>0:
+		arr2 = arrLines[x].split(",");
+		arrNew = [];
+		arrNew.append(arr2[0]);
+		arrNew.append(float(arr2[1]));
+		arrRet.append(arrNew);
+		x -= 1;
+	return arrRet;
+print(readData("GOOG.csv"));
+
+def get10DayAvg(data, i):
+	idx = i-1
+	sum = 0
+	c = 0
+	if i ==0:
+		return data[0][1]
+	else:
+		while idx >= 0 and c<10:
+			sum += data[idx-c][1]
+			c += 1	
+	avg = sum/c
+	return avg
+data = readData("GOOG.csv")
+avgLast = get10DayAvg(data, len(data)-1);
+print("10-day Avg for last day: " + str(avgLast));
